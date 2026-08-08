@@ -2,6 +2,7 @@ import os
 import json
 import logging
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # <-- ДОБАВИТЬ ЭТУ СТРОКУ
 import requests
 
 # Настройка логирования для отладки на Render
@@ -9,6 +10,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+CORS(app)  # <-- ДОБАВИТЬ ЭТУ СТРОКУ
 
 # Получаем API-ключ DeepSeek из переменных окружения
 DEEPSEEK_API_KEY = os.environ.get('DEEPSEEK_API_KEY')
